@@ -28,6 +28,11 @@ def after_request(response):
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
+@app.route('/', methods=['POST', 'GET'])
+def health():
+  return jsonify("Healthy")
+  
+
 @app.route('/movies', methods=['GET'])
 @requires_auth('get:movies')
 def get_movies(payload):
