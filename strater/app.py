@@ -8,16 +8,17 @@ from flask_cors import CORS
 from auth.auth import AuthError, requires_auth
 
   # create and configure the app
-app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-setup_db(app)
+def create_app(test_config=None):
+ app = Flask(__name__)
+ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+ setup_db(app)
 
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-@app.after_request
-def after_request(response):
+ @app.after_request
+ def after_request(response):
     response.headers.add('Access-Control-Allow-Headers',
    'Content-Type, Authorization')
     response.headers.add('Access-Control-Allow-Methods',
@@ -25,17 +26,17 @@ def after_request(response):
     return response
 
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-@app.route('/', methods=['POST', 'GET'])
-def health():
+ @app.route('/', methods=['POST', 'GET'])
+ def health():
   return jsonify("Healthy")
   
 
-@app.route('/movies', methods=['GET'])
-@requires_auth('get:movies')
-def get_movies(payload):
+ @app.route('/movies', methods=['GET'])
+ @requires_auth('get:movies')
+ def get_movies(payload):
 
     formatted_movies= [movie.format() for movie in
     Movie.query.all()]
@@ -50,12 +51,12 @@ def get_movies(payload):
         }), 200
 
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-@app.route('/actros', methods=['GET'])
-@requires_auth('get:actors')
-def get_actros(payload):
+ @app.route('/actros', methods=['GET'])
+ @requires_auth('get:actors')
+ def get_actros(payload):
 
     formatted_actros= [actor.format() for actor in
     Actor.query.all()]
@@ -70,12 +71,12 @@ def get_actros(payload):
         }), 200
 
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-@app.route('/movies/<int:movie_id>', methods=['DELETE'])
-@requires_auth('delete:movie')
-def delete_movie(payload, movie_id):
+ @app.route('/movies/<int:movie_id>', methods=['DELETE'])
+ @requires_auth('delete:movie')
+ def delete_movie(payload, movie_id):
     try:
       movie = Movie.query.filter(
       Movie.id == movie_id).one_or_none()
@@ -95,12 +96,12 @@ def delete_movie(payload, movie_id):
      abort(404)
 
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-@app.route('/actors/<int:actor_id>', methods=['DELETE'])
-@requires_auth('delete:actor')
-def delete_actor(payload, actor_id):
+ @app.route('/actors/<int:actor_id>', methods=['DELETE'])
+ @requires_auth('delete:actor')
+ def delete_actor(payload, actor_id):
     try:
       actor = Actor.query.filter(
       Actor.id == actor_id).one_or_none()
@@ -120,12 +121,12 @@ def delete_actor(payload, actor_id):
      abort(404)
 
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-@app.route('/add-movie', methods=['POST'])
-@requires_auth('post:movie')
-def Add_movie(payload):
+ @app.route('/add-movie', methods=['POST'])
+ @requires_auth('post:movie')
+ def Add_movie(payload):
    
    body = request.get_json()
 
@@ -157,12 +158,12 @@ def Add_movie(payload):
      abort(422)
 
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-@app.route('/add-actor', methods=['POST'])
-@requires_auth('post:actor')
-def Add_actor(payload):
+ @app.route('/add-actor', methods=['POST'])
+ @requires_auth('post:actor')
+ def Add_actor(payload):
 
    body = request.get_json()
 
@@ -198,12 +199,12 @@ def Add_actor(payload):
      abort(422)
 
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-@app.route('/actors/<int:actor_id>', methods=['PATCH'])
-@requires_auth('patch:actors')
-def update_actor(payload, id):
+ @app.route('/actors/<int:actor_id>', methods=['PATCH'])
+ @requires_auth('patch:actors')
+ def update_actor(payload, id):
     body = request.get_json()
     
     try:
@@ -230,12 +231,12 @@ def update_actor(payload, id):
      abort(404)
 
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-@app.route('/movies/<int:movie_id>', methods=['PATCH'])
-@requires_auth('patch:movies')
-def update_movie(payload, id):
+ @app.route('/movies/<int:movie_id>', methods=['PATCH'])
+ @requires_auth('patch:movies')
+ def update_movie(payload, id):
     body = request.get_json()
     
     try:
@@ -260,11 +261,11 @@ def update_movie(payload, id):
      abort(404)
 
  
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-@app.errorhandler(422)
-def unprocessable(error):
+ @app.errorhandler(422)
+ def unprocessable(error):
     return jsonify({
         "success": False,
         "error": 422,
@@ -272,8 +273,8 @@ def unprocessable(error):
     }), 422
 
 
-@app.errorhandler(404)
-def not_found(error):
+ @app.errorhandler(404)
+ def not_found(error):
     return jsonify({
         "success": False,
         "error": 404,
@@ -281,8 +282,8 @@ def not_found(error):
     }), 404
 
 
-@app.errorhandler(500)
-def internal_server_error(error):
+ @app.errorhandler(500)
+ def internal_server_error(error):
     return jsonify({
         "success": False,
         "error": 500,
@@ -290,8 +291,8 @@ def internal_server_error(error):
     }), 500
 
 
-@app.errorhandler(400)
-def bad_request(error):
+ @app.errorhandler(400)
+ def bad_request(error):
     return jsonify({
         "success": False,
         "error": 400,
@@ -299,24 +300,26 @@ def bad_request(error):
     }), 400
 
 
-@app.errorhandler(401)
-def unauthorized(error):
+ @app.errorhandler(401)
+ def unauthorized(error):
     return jsonify({
         "success": False,
         "error": 401,
         "message": 'Unathorized'
     }), 401
 
-@app.errorhandler(AuthError)
-def auth_error(error):
+ @app.errorhandler(AuthError)
+ def auth_error(error):
     return jsonify({
         'success': False,
         'error': error.status_code,
         'message': error.error['description']
     }), error.status_code
 
+
+APP = create_app()
 if __name__ == '__main__':
-    app.run()
+    APP.run()
     
     
   
