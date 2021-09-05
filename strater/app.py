@@ -315,7 +315,8 @@ def create_app(test_config=None):
         'error': error.status_code,
         'message': error.error['description']
     }), error.status_code
-
+ 
+ return app
 
 APP = create_app()
 if __name__ == '__main__':
