@@ -3,15 +3,12 @@ from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.sqltypes import Date
 
-'''
-database_name = "trivia"
-database_path = "postgres://{}:{}@{}/{}".format('project2', '123321','localhost:5432', database_name)
-'''
-DB_HOST = os.getenv('DB_HOST', 'localhost:5432')  
-DB_USER = os.getenv('DB_USER', 'postgres')  
-DB_PASSWORD = os.getenv('DB_PASSWORD', '123321')  
-DB_NAME = os.getenv('DB_NAME', 'finalproject')  
-DB_PATH = os.environ['DATABASE_URL']
+
+#DB_HOST = os.getenv('DB_HOST', 'localhost:5432')  
+#DB_USER = os.getenv('DB_USER', 'postgres')  
+#DB_PASSWORD = os.getenv('DB_PASSWORD', '123321')  
+#DB_NAME = os.getenv('DB_NAME', 'finalproject')  
+DB_PATH = "postgresql://vrdfjsbeljadfv:3153e2f96cf0f1de8de336dec28c081faa9ea3e60e99ca56bc9efac11935917b@ec2-34-200-94-86.compute-1.amazonaws.com:5432/ddmjjqvbci198b" #os.environ['DATABASE_URL']
 #"postgres://{}:{}@{}/{}".format('postgres', '123321','localhost:5432', 'finalproject')
 #'postgresql://vrdfjsbeljadfv:3153e2f96cf0f1de8de336dec28c081faa9ea3e60e99ca56bc9efac11935917b@ec2-34-200-94-86.compute-1.amazonaws.com:5432/ddmjjqvbci198b']
 db = SQLAlchemy()
@@ -25,7 +22,6 @@ def setup_db(app, database_path=DB_PATH):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    db.create_all()
 
 class Movie(db.Model):  
   __tablename__ = 'movies'

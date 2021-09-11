@@ -1,11 +1,11 @@
 from operator import ge
 import os
 from sqlalchemy.sql.expression import null
+from auth.auth import AuthError, requires_auth
 from models import Actor, Movie, setup_db
 from flask import Flask, app, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from auth.auth import AuthError, requires_auth
 
   # create and configure the app
 def create_app(test_config=None):
