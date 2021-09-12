@@ -1,5 +1,4 @@
-from operator import ge
-import os
+
 from sqlalchemy.sql.expression import null
 from auth.auth import AuthError, requires_auth
 from models import Actor, Movie, setup_db
@@ -15,6 +14,7 @@ def create_app(test_config=None):
 
 
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 
 
  @app.after_request
@@ -54,14 +54,14 @@ def create_app(test_config=None):
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
- @app.route('/actros', methods=['GET'])
+ @app.route('/actors', methods=['GET'])
  @requires_auth('get:actors')
  def get_actros(payload):
-
     formatted_actros= [actor.format() for actor in
     Actor.query.all()]
 
     if not formatted_actros:
+      
       abort(404)
    
     return jsonify({
@@ -76,7 +76,7 @@ def create_app(test_config=None):
 
  @app.route('/movies/<int:movie_id>', methods=['DELETE'])
  @requires_auth('delete:movie')
- def delete_movie(payload, movie_id):
+ def delete_movie(payload,movie_id):
     try:
       movie = Movie.query.filter(
       Movie.id == movie_id).one_or_none()
@@ -101,7 +101,7 @@ def create_app(test_config=None):
 
  @app.route('/actors/<int:actor_id>', methods=['DELETE'])
  @requires_auth('delete:actor')
- def delete_actor(payload, actor_id):
+ def delete_actor( payload,actor_id):
     try:
       actor = Actor.query.filter(
       Actor.id == actor_id).one_or_none()
@@ -122,7 +122,6 @@ def create_app(test_config=None):
 
 
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
 
  @app.route('/add-movie', methods=['POST'])
  @requires_auth('post:movie')
@@ -204,16 +203,18 @@ def create_app(test_config=None):
 
  @app.route('/actors/<int:actor_id>', methods=['PATCH'])
  @requires_auth('patch:actors')
- def update_actor(payload, id):
+ def update_actor(payload,actor_id):
     body = request.get_json()
     
     try:
-       updated_actor = Movie.query.get(id)
+       updated_actor = Actor.query.get(actor_id)
 
        if 'name' not in body \
          or 'age' not in body \
            or 'gender' not in body:
          abort(422)
+
+     
 
        updated_actor.name = body['name']
        updated_actor.age = body['age']
@@ -236,24 +237,24 @@ def create_app(test_config=None):
 
  @app.route('/movies/<int:movie_id>', methods=['PATCH'])
  @requires_auth('patch:movies')
- def update_movie(payload, id):
+ def update_movie( payload,movie_id):
     body = request.get_json()
     
     try:
-       updated_movie = Movie.query.get(id)
+       updated_movie = Movie.query.get(movie_id)
 
        if 'title' not in body \
          or 'release_date' not in body:
          abort(422)
 
        updated_movie.title = body['title']
-       updated_movie.release_date = body['recipe']
+       updated_movie.release_date = body['release_date']
 
        updated_movie.update()
 
        return jsonify({
             "success": True, 
-            "movies": updated_movie.format()
+           
        }),200
 
     except Exception as e:    
@@ -323,4 +324,3 @@ if __name__ == '__main__':
     APP.run()
     
     
-  
