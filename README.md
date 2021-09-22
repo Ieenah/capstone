@@ -5,7 +5,7 @@ The Casting Agency models a company that is responsible for creating movies and 
 Casting Agency is the last project of Full Stack nano-degree program by Udacity
 
 ## Dependencies:
-#### Python 3.7
+#### Python 3.9
 
 Follow instructions to install the latest version of python for your platform in the [python docs](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python).
 
@@ -45,7 +45,7 @@ This will install all of the required packages.
         - Add or delete a movie from the database
 
 
-you can find each token for each role in the #### setup.sh file
+you can find each token for each role in the setup.sh file
 
 ## Endpoins:
 
@@ -100,6 +100,6 @@ DELETE '/movies/<int:movie_id>'
 ## Running tests:
 To run the tests, run:
 
-dropdb finalproject_test
-createdb finalproject_test
-python test_app.py
+- dropdb finalproject_test
+- createdb finalproject_test
+- python test_app.py
