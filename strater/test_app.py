@@ -45,7 +45,7 @@ class TriviaTestCase(unittest.TestCase):
         }
 
         res = self.client().post('/add-movie', json=request, headers={
-            "Authorization": "Bearer {}".format(producer_token)})
+            "Authorization": "Bearer {}"+producer_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -59,7 +59,7 @@ class TriviaTestCase(unittest.TestCase):
         }
 
         res = self.client().post('/add-actor', json=request, headers={
-            "Authorization": "Bearer {}".format(producer_token)})
+            "Authorization": "Bearer {}"+producer_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -74,7 +74,7 @@ class TriviaTestCase(unittest.TestCase):
         }
 
         res = self.client().post('/add-movie', json=request, headers={
-            "Authorization": "Bearer {}".format(assistance_token)})
+            "Authorization": "Bearer {}"+assistance_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 403)
@@ -87,7 +87,7 @@ class TriviaTestCase(unittest.TestCase):
         }
 
         res = self.client().post('/add-actor', json=request, headers={
-            "Authorization": "Bearer {}".format(assistance_token)})
+            "Authorization": "Bearer {}"+assistance_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 403)
@@ -97,7 +97,7 @@ class TriviaTestCase(unittest.TestCase):
 
     def test_get_movies(self):
         res = self.client().get('/movies', headers={
-            "Authorization": "Bearer {}".format(assistance_token)})
+            "Authorization": "Bearer {}"+assistance_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -105,7 +105,7 @@ class TriviaTestCase(unittest.TestCase):
 
     def test_get_actors(self):
         res = self.client().get('/actors', headers={
-            "Authorization": "Bearer {}".format(assistance_token)})
+            "Authorization": "Bearer {}"+assistance_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -141,7 +141,7 @@ class TriviaTestCase(unittest.TestCase):
         }
 
         res = self.client().patch('/movies/2', json=request, headers={
-            "Authorization": "Bearer {}".format(producer_token)})
+            "Authorization": "Bearer {}"+producer_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -154,7 +154,7 @@ class TriviaTestCase(unittest.TestCase):
         }
 
         res = self.client().patch('/actors/2', json=request, headers={
-            "Authorization": "Bearer {}".format(producer_token)})
+            "Authorization": "Bearer {}"+producer_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -172,7 +172,7 @@ class TriviaTestCase(unittest.TestCase):
         }
 
         res = self.client().patch('/movies/2', json=request, headers={
-            "Authorization": "Bearer {}".format(assistance_token)})
+            "Authorization": "Bearer {}"+assistance_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 403)
@@ -183,7 +183,7 @@ class TriviaTestCase(unittest.TestCase):
             'name': 'loly', 'age': 22
         }
         res = self.client().patch('/actors/2', json=request, headers={
-            "Authorization": "Bearer {}".format(assistance_token)})
+            "Authorization": "Bearer {}"+assistance_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 403)
@@ -194,7 +194,7 @@ class TriviaTestCase(unittest.TestCase):
 
     def test_delete_movie(self):
         res = self.client().delete('/movies/6', headers={
-            "Authorization": "Bearer {}".format(producer_token)})
+            "Authorization": "Bearer {}"+producer_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -204,7 +204,7 @@ class TriviaTestCase(unittest.TestCase):
 
     def test_delete_actor(self):
         res = self.client().delete('/actors/6', headers={
-            "Authorization": "Bearer {}".format(producer_token)})
+            "Authorization": "Bearer {}"+producer_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -215,7 +215,7 @@ class TriviaTestCase(unittest.TestCase):
 
     def test_404_delete_movie(self):
         res = self.client().delete('/movies/0', headers={
-            "Authorization": "Bearer {}".format(producer_token)})
+            "Authorization": "Bearer {}"+producer_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 404)
@@ -223,7 +223,7 @@ class TriviaTestCase(unittest.TestCase):
 
     def test_404_delete_actor(self):
         res = self.client().delete('/actors/0', headers={
-            "Authorization": "Bearer {}".format(producer_token)})
+            "Authorization": "Bearer {}"+producer_token})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 404)
