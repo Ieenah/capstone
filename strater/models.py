@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.sqltypes import Date
 
   
-DB_PATH = "postgresql://vrdfjsbeljadfv:3153e2f96cf0f1de8de336dec28c081faa9ea3e60e99ca56bc9efac11935917b@ec2-34-200-94-86.compute-1.amazonaws.com:5432/ddmjjqvbci198b" 
+DB_PATH = "postgres://bfxmjyatddohlp:443f0e849b395e9f26899ab4c3dbe61e9471c949ed60fff3b84be93d887f9b4e@ec2-34-193-112-164.compute-1.amazonaws.com:5432/ddhp8jbqaar79v"
 
 db = SQLAlchemy()
 
