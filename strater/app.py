@@ -9,7 +9,7 @@ from flask_cors import CORS
   # create and configure the app
 def create_app(test_config=None):
  app = Flask(__name__)
- cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+ CORS(app)
  setup_db(app)
 
 
@@ -327,8 +327,8 @@ def create_app(test_config=None):
  
  return app
 
-APP = create_app()
+app = create_app()
 if __name__ == '__main__':
-    APP.run()
+    app.run()
     
     

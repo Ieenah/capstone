@@ -5,7 +5,7 @@ import unittest
 import json
 from flask_sqlalchemy import SQLAlchemy
 
-from app import APP, create_app
+from app import create_app
 from models import setup_db, db_drop_create_all
 
 
@@ -19,7 +19,7 @@ class TriviaTestCase(unittest.TestCase):
 
     def setUp(self):
         """Define test variables and initialize app."""
-        self.app = APP
+        self.app = create_app()
         self.client = self.app.test_client
         database_name = "finalproject_test"
         self.database_path = "postgresql://{}:{}@{}/{}".format(
