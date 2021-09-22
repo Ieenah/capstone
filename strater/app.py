@@ -1,4 +1,4 @@
-
+import os
 from sqlalchemy.sql.expression import null
 from auth.auth import AuthError, requires_auth
 from models import Actor, Movie, setup_db
@@ -15,7 +15,7 @@ def create_app(test_config=None):
 
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-
+ 
 
  @app.after_request
  def after_request(response):
@@ -29,10 +29,18 @@ def create_app(test_config=None):
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
- @app.route('/', methods=['POST', 'GET'])
- def health():
-  return jsonify("Healthy")
-  
+ @app.route('/')
+ def get_greeting():
+   excited = os.environ.get('EXCITED')
+   print(excited)
+   greeting = "Hello"
+   if excited == "true":
+     greeting = greeting + "!!!!!"  
+   return greeting
+
+ @app.route('/coolkids')
+ def be_cool():
+   return "Be cool, man, be coooool! You're almost a FSND grad!" 
 
  @app.route('/movies', methods=['GET'])
  @requires_auth('get:movies')

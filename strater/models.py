@@ -14,16 +14,19 @@ setup_db(app)
     binds a flask application and a SQLAlchemy service
 '''
 def setup_db(app, database_path=DB_PATH):
-    app.config["SQLALCHEMY_DATABASE_URI"] = DB_PATH
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
+    #db.create_all()
+
+    
 
 class Movie(db.Model):  
   __tablename__ = 'movies'
-  id = Column(Integer, primary_key=True)
-  title = Column(String)
-  release_date = Column(Date)
+  id = db.Column(db.Integer, primary_key=True)
+  title = db.Column(db.String, nullable=False)
+  release_date = db.Column(Date, nullable=False)
 
   def __init__(self, title, release_date):
         self.title = title
@@ -55,10 +58,11 @@ class Movie(db.Model):
 class Actor(db.Model):
    __tablename__ = 'actors'
 
-   id = Column(Integer, primary_key=True)
-   name = Column(String)
-   age = Column(String)
-   gender = Column(String)
+   id = db.Column(db.Integer, primary_key=True)
+   name = db.Column(db.String, nullable=False)
+   age = db.Column(db.String, nullable=False)
+   gender = db.Column(db.String,nullable=False)
+
 
    def __init__(self, name, gender, age):
         self.name = name
