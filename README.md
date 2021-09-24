@@ -90,8 +90,11 @@ GET '/movies'
 ```bash 
 curl --location --request GET 'https://leenah1.herokuapp.com/movies' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg'
 ```
-```
-{"movies":[{"id":1,"release":"Wed, 29 Mar 2000 00:00:00 GMT","title":"Leenah movie"},{"id":3,"release":"Wed, 29 Mar 2000 00:00:00 GMT","title":"titanc"},{"id":5,"release":"Sat, 29 Mar 2008 00:00:00 GMT","title":"inseption"},{"id":6,"release":"Thu, 29 Mar 2012 00:00:00 GMT","title":"the maze runner"},{"id":7,"release":"Fri, 29 Mar 2019 00:00:00 GMT","title":"ush"}],"success":true,"total_movies":5}
+```bash
+{
+   "movies":[
+        {
+           "id":1,"release":"Wed, 29 Mar 2000 00:00:00 GMT","title":"Leenah movie"},{"id":3,"release":"Wed, 29 Mar 2000 00:00:00 GMT","title":"titanc"},{"id":5,"release":"Sat, 29 Mar 2008 00:00:00 GMT","title":"inseption"},{"id":6,"release":"Thu, 29 Mar 2012 00:00:00 GMT","title":"the maze runner"},{"id":7,"release":"Fri, 29 Mar 2019 00:00:00 GMT","title":"ush"}],"success":true,"total_movies":5}
 ```
 
 POST '/add-actor'
