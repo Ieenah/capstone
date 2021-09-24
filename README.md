@@ -62,40 +62,89 @@ GET '/actors'
 - Fetches a JSON object with a list of actors in the database.
 - Request Arguments: None
 - Returns: An object with a single key, actors, that contains multiple objects with a series of string key pairs.
+```bash
+curl --location --request GET 'https://leenah1.herokuapp.com/actors' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg'
+```
+```
+{"actors":[{"gender":"female","id":1,"name":"Leenah","release":"21"},{"gender":"female","id":5,"name":"Leenah","release":"21"},{"gender":"male","id":6,"name":"The rock","release":"49"},{"gender":"female","id":7,"name":"Selena Gomez","release":"29"},{"gender":"female","id":8,"name":"Marget Robbie","release":"31"}],"success":true,"total_actors":8}
+```
+
 
 GET '/movies'
 - Fetches a JSON object with a list of movies in the database.
 - Request Arguments: None
 - Returns: An object with a single key, movies, that contains multiple objects with a series of string key pairs.
+```bash 
+curl --location --request GET 'https://leenah1.herokuapp.com/movies' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg'
+```
+```
+{"movies":[{"id":1,"release":"Wed, 29 Mar 2000 00:00:00 GMT","title":"Leenah movie"},{"id":3,"release":"Wed, 29 Mar 2000 00:00:00 GMT","title":"titanc"},{"id":5,"release":"Sat, 29 Mar 2008 00:00:00 GMT","title":"inseption"},{"id":6,"release":"Thu, 29 Mar 2012 00:00:00 GMT","title":"the maze runner"},{"id":7,"release":"Fri, 29 Mar 2019 00:00:00 GMT","title":"ush"}],"success":true,"total_movies":5}
+```
 
 POST '/add-actor'
 - Posts a new actor to the database, including the name, age, gender, and actor ID, which is automatically assigned upon insertion.
 - Request Arguments: Requires three string arguments: name, age, gender.
-- Returns: An actor object with the age, gender, actor ID, and name.
+- Returns: An actor object with the age, gender, actor ID, and name, status code.
+```bash 
+curl --location --request POST 'https://leenah1.herokuapp.com/add-actor' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg' --header 'Content-Type: application/json' --data-raw '{"name": "Marget Robbie", "age": "31","gender": "female"}'
+```
+```
+{"actor":{"gender":"female","id":8,"name":"Marget Robbie","release":"31"},"success":true}
+```
 
 POST '/add-movie'
 - Posts a new movie to the database, including the title, release, and movie ID, which is automatically assigned upon insertion.
 - Request Arguments: Requires two string arguments: title, release.
-- Returns: A movie object with the movie ID, release, and title.
+- Returns: A movie object with the movie ID, release, and title, status code .
+```bash 
+curl --location --request POST 'https://leenah1.herokuapp.com/add-movie' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg' --header 'Content-Type: application/json' --data-raw '{"title":"titanc", "release_date":"2000-3-29"}'
+```
+```
+{"movie":{"id":3,"release":"Wed, 29 Mar 2000 00:00:00 GMT","title":"titanc"},"success":true}
+```
 
 PATCH '/actors/<int:actor_id>'
 - Patches an existing actor in the database.
-- Request arguments: Actor ID, included as a parameter following a forward slash (/), and the key to be updated passed into the body as a JSON object. For example, to update the age for '/actors/6'
+- Request arguments: Actor ID, included as a parameter following a forward slash (/), and the key to be updated passed into the body as a JSON object. For example, to update the name and gender and age for '/actors/1'
+```bash 
+curl --location --request PATCH 'https://leenah1.herokuapp.com/actors/1' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg' --header 'Content-Type: application/json' --data-raw '{"name":"Nelu", "gender": "female", "age": "21"}'
+```
+```
+{"actors":{"gender":"female","id":1,"name":"Nelu","release":"21"},"success":true}
+```
 
 PATCH '/movies/<int:movie_id>'
 - Patches an existing movie in the database.
-- Request arguments: Movie ID, included as a parameter following a forward slash (/), and the key to be updated, passed into the body as a JSON object. For example, to update the age for '/movies/5'
+- Request arguments: Movie ID, included as a parameter following a forward slash (/), and the key to be updated, passed into the body as a JSON object. For example, to update the title and release date for '/movies/1'
+```bash
+curl --location --request PATCH 'https://leenah1.herokuapp.com/movies/1' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg' --header 'Content-Type: application/json' --data-raw '{"title":"Nelu", "release_date": "2002-12-23"}'
+```
+```
+{"success":true}
+```
+
 
 DELETE '/actors/<int:actor_id>'
 - Deletes an actor in the database via the DELETE method and using the actor id.
 - Request argument: Actor id, included as a parameter following a forward slash (/).
 - Returns: ID for the deleted question and status code of the request.
+```bash 
+ curl --location --request DELETE 'https://leenah1.herokuapp.com/actors/1' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg'
+ ```
+ ```
+{"deleted":1,"success":true}
+```
 
 DELETE '/movies/<int:movie_id>'
 - Deletes a movie in the database via the DELETE method and using the movie id.
 - Request argument: Movie id, included as a parameter following a forward slash (/).
 - Returns: ID for the deleted question and status code of the request.
-
+```bash 
+curl --location --request DELETE 'https://leenah1.herokuapp.com/movies/5' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg'
+```
+```
+{"deleted":5,"success":true}
+```
 
 ## Running tests:
 To run the tests, run:
