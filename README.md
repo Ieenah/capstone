@@ -65,8 +65,21 @@ GET '/actors'
 ```bash
 curl --location --request GET 'https://leenah1.herokuapp.com/actors' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg'
 ```
-```
-{"actors":[{"gender":"female","id":1,"name":"Leenah","release":"21"},{"gender":"female","id":5,"name":"Leenah","release":"21"},{"gender":"male","id":6,"name":"The rock","release":"49"},{"gender":"female","id":7,"name":"Selena Gomez","release":"29"},{"gender":"female","id":8,"name":"Marget Robbie","release":"31"}],"success":true,"total_actors":8}
+```bash
+{
+   "actors":[
+   {
+       "gender":
+            "female","id":1,"name":"Leenah","release":"21"},{"gender":"female","id":5,"name":"Leenah","release":"21"
+            },        
+   {
+       "gender":
+            "male","id":6,"name":"The rock","release":"49"},{"gender":"female","id":7,"name":"Selena Gomez","release":"29"
+            },
+   {
+       "gender":
+            "female","id":8,"name":"Marget Robbie","release":"31"}],"success":true,"total_actors":8
+            }
 ```
 
 
