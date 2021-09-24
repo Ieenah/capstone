@@ -138,7 +138,7 @@ POST '/add-movie'
 ```bash 
 curl --location --request POST 'https://leenah1.herokuapp.com/add-movie' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg' --header 'Content-Type: application/json' --data-raw '{"title":"titanc", "release_date":"2000-3-29"}'
 ```
-```
+```bash
 {
    "movie":
       {
@@ -154,7 +154,7 @@ PATCH '/actors/<int:actor_id>'
 ```bash 
 curl --location --request PATCH 'https://leenah1.herokuapp.com/actors/1' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg' --header 'Content-Type: application/json' --data-raw '{"name":"Nelu", "gender": "female", "age": "21"}'
 ```
-```
+```bash
 {
    "actors":
          {
@@ -170,7 +170,7 @@ PATCH '/movies/<int:movie_id>'
 ```bash
 curl --location --request PATCH 'https://leenah1.herokuapp.com/movies/1' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg' --header 'Content-Type: application/json' --data-raw '{"title":"Nelu", "release_date": "2002-12-23"}'
 ```
-```
+```bash
 {
   "success":true
 }
@@ -184,7 +184,7 @@ DELETE '/actors/<int:actor_id>'
 ```bash 
  curl --location --request DELETE 'https://leenah1.herokuapp.com/actors/1' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg'
  ```
- ```
+ ```bash
 {
    "deleted":1,
    "success":true
@@ -198,7 +198,7 @@ DELETE '/movies/<int:movie_id>'
 ```bash 
 curl --location --request DELETE 'https://leenah1.herokuapp.com/movies/5' --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImZQNk0yUUJaQjViZklxUU8tQjZoLSJ9.eyJpc3MiOiJodHRwczovL2lsZWVuYWgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTE1NzViOGUzMWQ1MDA2OWY4NzRlYSIsImF1ZCI6ImZwIiwiaWF0IjoxNjMyNDAyMjg2LCJleHAiOjE2MzI0ODg2ODYsImF6cCI6InRMRUVpOEpIelhXWEhxVEJiN1F4V3FRbDNDTHBISGVHIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3IiLCJkZWxldGU6bW92aWUiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.mPPaCGCOBJrKPwoIKuSZRuBzBnoDEZVg_rawR_HFN1E6RQx1ZSM8BDB6V1rob4YVg-WX65Tk7ovyzOnwgUW0uC74q7fBkCRKI2zaOUhWlT35k5_S2tf--jfPeJjs5jzoo0B1tlw6mXBZVvQI0iRVytc1XfG_jWmPIikjGW_lturVqjiO7iBwtF0leax1eRZuT1bdFSqWmb3EAFTEqCluaL-B3c_YeX7tyTZqrt8iAnkcpYxT3mZgIE3yXAheMNg0w5mDroF2_hHTdQIuEoXJ7l67O69jt-PeQ7gpqbKDPzFuzS3AYC5UpVbionryg1-FyqVT1e6VNfh69IItyq-xXg'
 ```
-```
+```bash
 {
    "deleted":5,
    "success":true
