@@ -1,9 +1,7 @@
 import os
-from sqlalchemy.sql.expression import null
 from auth.auth import AuthError, requires_auth
 from models import Actor, Movie, setup_db
-from flask import Flask, app, request, abort, jsonify
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, request, abort, jsonify
 from flask_cors import CORS
 
   # create and configure the app
@@ -232,7 +230,7 @@ def create_app(test_config=None):
 
        return jsonify({
             "success": True, 
-            "movies": updated_actor.format()
+            "actors": updated_actor.format()
        }),200
 
     except Exception as e:    
@@ -327,8 +325,8 @@ def create_app(test_config=None):
  
  return app
 
-app = create_app()
+APP = create_app()
 if __name__ == '__main__':
-    app.run()
+    APP.run()
     
     

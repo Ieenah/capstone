@@ -1,11 +1,11 @@
 
 import os
-from sqlalchemy import Column, String, Integer, create_engine
+import json
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.sqltypes import Date
 
   
-DB_PATH = "postgres://bfxmjyatddohlp:443f0e849b395e9f26899ab4c3dbe61e9471c949ed60fff3b84be93d887f9b4e@ec2-34-193-112-164.compute-1.amazonaws.com:5432/ddhp8jbqaar79v"
+database= 'postgres://bfxmjyatddohlp:443f0e849b395e9f26899ab4c3dbe61e9471c949ed60fff3b84be93d887f9b4e@ec2-34-193-112-164.compute-1.amazonaws.com:5432/ddhp8jbqaar79v'#os.environ.get("DATABASE_URL")
 
 db = SQLAlchemy()
 
@@ -13,8 +13,8 @@ db = SQLAlchemy()
 setup_db(app)
     binds a flask application and a SQLAlchemy service
 '''
-def setup_db(app, database_path=DB_PATH):
-    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+def setup_db(app, database_path=database):
+    app.config["SQLALCHEMY_DATABASE_URI"] = database
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
@@ -51,7 +51,7 @@ class Movie(db.Model):
         return {
             'id': self.id,
             'title': self.title,
-            'release': self.release_date,
+            'release date': self.release_date
         }
 
 
