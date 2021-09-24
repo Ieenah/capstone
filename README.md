@@ -211,3 +211,7 @@ To run the tests, run:
 - dropdb finalproject_test
 - createdb finalproject_test
 - python test_app.py
+
+## Hosting
+
+The application is hosted by heroku under the url: ['heroku app'](https://leenah1.herokuapp.com/)
